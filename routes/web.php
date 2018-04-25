@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', 'MasterpageController@index');
+//Route::get('/', 'MasterpageController@index');
+Route::get('/', function (){
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 
@@ -90,3 +97,7 @@ Route::delete('/pembayaran/{id}', 'PembayaranController@destroy')->name('deletep
 Route::get('logout', function (){
     Auth::logout();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
